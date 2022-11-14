@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>HELHaFit - Membres</title>
+</head>
+<body>
+    <h1 th:text="${welcomeMsg}"></h1>
+    <a th:href="@{/members/add}">Ajouter un membre</a>
+    <br/>
+    <br/>
+    <form action="#" method="GET">
+        <div class="keyword">
+            <label for="keyword">Mots-clés:</label>
+            <input type="text" name="keyword" id="keyword" th:value="${keyword}"/>
+        </div>
+        <input type="submit" value="Rechercher"/>
+    </form>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Firstname</th>
+            <th>Email</th>
+        </thead>
+        <tbody>
+            <tr th:each="member : ${members}">
+                <td th:text="${member.id}"></td>
+                <td th:text="${member.name}"></td>
+                <td th:text="${member.firstname}"></td>
+                <td th:text="${member.email}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
