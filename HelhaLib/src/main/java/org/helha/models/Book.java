@@ -1,9 +1,13 @@
 package org.helha.models;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
 public class Book {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
     private String author;
@@ -13,7 +17,12 @@ public class Book {
 
     private String imageURL;
 
-    public Book(int id, String name, String author, String isbn, BigDecimal price,String imageURL) {
+    private String jsonFormat;
+
+    public Book() {
+    }
+
+    public Book(int id, String name, String author, String isbn, BigDecimal price, String imageURL) {
         this.id = id;
         this.name = name;
         this.author = author;
@@ -76,5 +85,13 @@ public class Book {
 
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public String getJsonFormat() {
+        return jsonFormat;
+    }
+
+    public void setJsonFormat(String jsonFormat) {
+        this.jsonFormat = jsonFormat;
     }
 }
