@@ -35,6 +35,7 @@ public class MemberController {
         return "addMember";
     }
 
+
     @PostMapping("/add")
     public String addNewMember(Member member,Model model){
         this.service.add(member);
